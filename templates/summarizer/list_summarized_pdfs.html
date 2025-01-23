@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarized PDFs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'summarizer/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Summarized PDFs</h1>
+        <ul>
+            {% for pdf in pdfs %}
+                <li>
+                    <a href="{{ pdf.summarized_pdf.url }}" target="_blank">{{ pdf.pdf.name }}</a>
+                    <a href="{% url 'convert_pdf_to_audio' pdf.id %}" class="convert-btn">Convert to Audio</a>
+                    <a href="{% url 'translate_pdf' pdf.id %}" class="translate-btn">Translate</a>
+                </li>
+            {% empty %}
+                <li>No summarized PDFs available.</li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{% url 'main_page' %}">Back to Main Page</a>
+    </div>
+</body>
+</html>

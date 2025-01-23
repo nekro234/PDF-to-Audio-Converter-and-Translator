@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url("{% static 'converter/images/background.jpg' %}") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.delete-btn, .cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover, .cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+.cancel-btn {
+    background-color: #3498db;
+}
+
+.cancel-btn:hover {
+    background-color: #2980b9;
+}

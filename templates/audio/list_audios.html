@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Audio Files</title>
+</head>
+<body>
+    <h1>My Audio Files</h1>
+    <ul>
+        {% for audio_file in audio_files %}
+            <li>
+                <a href="{{ audio_file.audio.url }}">{{ audio_file.audio.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'main_page' %}">Back to Main Page</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View PDFs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'translator/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>List of PDF Documents</h1>
+        <ul class="pdf-list">
+            {% for document in documents %}
+            <li>
+                Original: <a href="{{ document.pdf.url }}">{{ document.pdf.name }}</a>
+                <form method="post" action="{% url 'translate_pdf' document.pk %}" class="translate-form">
+                    {% csrf_token %}
+                    <select name="target_language">
+                        <option value="ms">Malay</option>
+                        <option value="ta">Tamil</option>
+                        <option value="en">English</option>
+                        <option value="ar">Arabic</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                    <button type="submit">Translate</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{% url 'main_page' %}">Back to Main Page</a>
+    </div>
+</body>
+</html>

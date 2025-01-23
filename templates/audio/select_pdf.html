@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select PDF for Audio Conversion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'audio/css/select.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select PDF for Audio Conversion</h1>
+        <ul>
+            {% for pdf in pdfs %}
+                <li>
+                    <a href="{% url 'list_voices' pdf.id %}">{{ pdf.pdf.name }}</a>
+                </li>
+            {% empty %}
+                <li>No PDFs uploaded yet.</li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{% url 'main_page' %}">Back to Main Page</a>
+    </div>
+</body>
+</html>

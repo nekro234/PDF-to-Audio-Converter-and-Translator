@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Summary</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'summarizer/css/styles.css' %}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .summary-content {
+            text-align: left;
+            white-space: pre-wrap; /* Ensures text wraps and retains line breaks */
+            word-wrap: break-word; /* Prevents text from overflowing */
+        }
+        .pdf-link {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Summary</h1>
+        <h2>{{ pdf_file.pdf.name }}</h2>
+        <pre class="summary-content">{{ pdf_file.summary }}</pre>
+        {% if pdf_file.summarized_pdf %}
+            <a href="{{ pdf_file.summarized_pdf.url }}" target="_blank" class="pdf-link">Download Summarized PDF</a>
+        {% endif %}
+        <a href="{% url 'main_page' %}" class="back-link">Back to Main Page</a>
+    </div>
+</body>
+</html>

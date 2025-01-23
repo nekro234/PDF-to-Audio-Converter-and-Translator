@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'audio/css/mood.css' %}">
+    <title>Mood-Based Voice Reader</title>
+</head>
+<body>
+    <h1>Mood-Based Voice Reader</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="audio_id">Select Audio File:</label>
+        <select name="audio_id" id="audio_id">
+            {% for audio in audio_files %}
+                <option value="{{ audio.id }}">{{ audio.audio.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="mood">Select Mood:</label>
+        <select name="mood" id="mood">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="angry">Angry</option>
+        </select>
+        <button type="submit">Play</button>
+    </form>
+    <a href="{% url 'list_audios' %}">Back to Audio Files</a>
+</body>
+</html>

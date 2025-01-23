@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Uploaded PDFs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'converter/css/listpdf.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Uploaded PDFs</h1>
+        <ul class="pdf-list">
+            {% for pdf in pdfs %}
+                <li>
+                    <a href="{{ pdf.pdf.url }}" target="_blank">{{ pdf.pdf.name }}</a>
+                    <form action="{% url 'delete_pdf' pdf.id %}" method="post" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+            {% empty %}
+                <li>No PDFs uploaded yet.</li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="/converter/main">Back to Main Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Analytics</title>
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'converter/js/analytics.js' %}" defer></script>
+</head>
+<body>
+    <h1>Admin Analytics</h1>
+    <p>Total Users: <span id="totalUsers">{{ total_users }}</span></p>
+    <p>Total PDFs: <span id="totalPdfs">{{ total_pdfs }}</span></p>
+    <p>Total Translated PDFs: <span id="totalTranslatedPdfs">{{ total_translated_pdfs }}</span></p>
+    <p>Total Summarized PDFs: <span id="totalSummarizedPdfs">{{ total_summarized_pdfs }}</span></p>
+
+    <canvas id="analyticsChart" width="400" height="200"></canvas>
+</body>
+</html>

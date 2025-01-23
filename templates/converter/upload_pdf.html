@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'converter/css/upload.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload PDF</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+        <a class="back-link" href="/converter/main">Back to Main Page</a>
+    </div>
+</body>
+</html>

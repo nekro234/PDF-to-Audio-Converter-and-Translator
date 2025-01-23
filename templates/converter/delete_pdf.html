@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete PDF</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'converter/css/delete_pdf.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Are you sure you want to delete this PDF?</h1>
+        <p>{{ pdf.pdf.name }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">Yes, delete</button>
+            <a href="/converter/pdfs" class="cancel-btn">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

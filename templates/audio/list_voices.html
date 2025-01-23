@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Voices</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'audio/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Voices for {{ pdf_file.pdf.name }}</h1>
+        <form method="post" action="{% url 'convert_pdf_to_audio' pdf_id=pdf_file.id %}">
+            {% csrf_token %}
+            <label for="voice">Choose a voice:</label>
+            <select name="voice_id" id="voice">
+                {% for voice in voices %}
+                    <option value="{{ voice.id }}">{{ voice.name }} - {{ voice.get_language_display }} - {{ voice.get_gender_display }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Convert PDF to Audio</button>
+        </form>
+        <a class="back-link" href="{% url 'select_pdf' %}">Back to PDF Selection</a>
+    </div>
+</body>
+</html>

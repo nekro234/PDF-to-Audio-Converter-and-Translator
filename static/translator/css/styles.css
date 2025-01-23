@@ -1,0 +1,86 @@
+/* static/translator/css/styles.css */
+
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('/static/translator/images/Translate\ PDF.jpg'); /* Add the path to your background image */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.pdf-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pdf-list li {
+    margin-bottom: 15px;
+}
+
+.pdf-list a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.pdf-list a:hover {
+    color: #2980b9;
+}
+
+.translate-form {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.translate-form select {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.translate-form button {
+    padding: 5px 10px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.translate-form button:hover {
+    background-color: #218c53;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #2980b9;
+}

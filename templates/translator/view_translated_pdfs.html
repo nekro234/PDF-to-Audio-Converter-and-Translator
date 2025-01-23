@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Translated PDFs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'translator/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>List of Translated PDF Documents</h1>
+        <ul class="pdf-list">
+            {% for document in documents %}
+            <li>
+                {% if document.translated_file_ms %}
+                    <a href="{{ document.translated_file_ms.url }}">Malay PDF</a>
+                {% endif %}
+                {% if document.translated_file_ta %}
+                    <a href="{{ document.translated_file_ta.url }}">Tamil PDF</a>
+                {% endif %}
+                {% if document.translated_file_en %}
+                    <a href="{{ document.translated_file_en.url }}">English PDF</a>
+                {% endif %}
+                {% if document.translated_file_ar %}
+                    <a href="{{ document.translated_file_ar.url }}">Arabic PDF</a>
+                {% endif %}
+                {% if document.translated_file_es %}
+                    <a href="{{ document.translated_file_es.url }}">Spanish PDF</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="{% url 'main_page' %}">Back to Main Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Summarizer</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'summarizer/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Summarizer</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="pdf_id">Choose a PDF:</label>
+            <select name="pdf_id" id="pdf_id">
+                {% for pdf in pdfs %}
+                    <option value="{{ pdf.id }}">{{ pdf.pdf.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="change_type">Summarization Type:</label>
+            <select name="change_type" id="change_type">
+                <option value="small">Small Changes</option>
+                <option value="big">Big Changes</option>
+            </select>
+            <button type="submit">Summarize</button>
+            <a class="back-link" href="/converter/main">Back to Main Page</a>
+        </form>
+    </div>
+</body>
+</html>
